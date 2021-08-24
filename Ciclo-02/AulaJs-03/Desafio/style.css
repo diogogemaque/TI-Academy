@@ -1,0 +1,76 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+
+}
+
+main {
+	display: flex;	
+
+}
+.modal {
+	width: 30vw;
+	height: auto;
+	margin: 10px auto;
+	border: 1px solid black;
+	/*position: absolute;
+		left: 50%;
+		top: 25%;
+		transform: translate(-50%, -50%);*/
+	background-color: rgba(0, 0, 0, 0.06);
+	padding: 5px;
+	
+}
+
+.txt {
+	padding: 0;
+	margin: 10px 8px 5px 5px;
+}
+
+.cxTexto {
+	width: auto;
+	height: 20px;
+	padding: 10px;
+	border: 1px	solid black;
+	border-radius: 2px;
+	position: absolute;
+		left: 50%;
+
+}
+
+.cxTextoRes {
+	width: auto;
+	height: 20px;
+	padding: 10px;
+	border: 1px	solid black;
+	border-radius: 2px;
+	position: absolute;
+		left: 50%;
+		
+}
+
+#btn {
+	padding: 10px;
+	background-color: #1ecd56;
+	margin: 10px auto;
+	color: white;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+	transition: background .5s;
+
+}
+
+#btn:hover {
+	background-color: #1ab228;
+}
+
+@media screen and (max-width: 700px) {
+	main {
+		flex-direction: column;
+		background-color: #fff;
+	}
+}
