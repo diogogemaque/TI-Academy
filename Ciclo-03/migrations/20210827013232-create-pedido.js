@@ -17,8 +17,8 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
-      IdServico: {
-        type: Sequelize.STRING,
+      idServico: {
+        type: Sequelize.INTEGER,
         references:{
           model: 'servicos',
           key: 'id'
