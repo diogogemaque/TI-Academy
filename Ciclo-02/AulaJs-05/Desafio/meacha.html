@@ -1,1 +1,57 @@
-meacha
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="ceps.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Desafio 05</title>
+</head>
+<body>
+	<header>
+		<h1>ME ACHA!</h1>
+		<h2>ENCONTRE UM ENDEREÇO PELO NÚMERO DE CEP</h2>
+		
+		<div id="content-base" class="flex justify-content">
+			<div id="logo-principal" class="flex justify-content">
+				<span class="material-icons logo">
+					travel_explore
+				</span>
+			</div>
+		</div>
+
+	</header>
+<main>
+	<div id="conteudo-geral" class="flex justify-content">
+		<div class="box-custom flex justify-contente">
+		<form>
+			<label>CEP
+				<input type="text" class="cxCep"  name="cep" value="">
+			</label>
+			
+			<label>Endereço
+				<input type="text" id="logradouro" name="rua" value="">
+			</label>
+			
+			<label>Bairro
+				<input type="text" id="bairro" name="bairro" value="">
+			</label>
+			
+			<label>Cidade
+				<input type="text" id="localidade" name="cidade">
+			</label>
+			
+			<label>Estado
+				<input type="text" id="uf" name="UF">
+			</label>
+
+			<div class="display-btn flex justify-content">
+			<input type="button" id="btnBuscaCep" name="buscar" value="BUSCAR CEP">
+			</div>
+		</form>		
+		</div>
+	</div>	
+</main>	
+</body>
+</html>
