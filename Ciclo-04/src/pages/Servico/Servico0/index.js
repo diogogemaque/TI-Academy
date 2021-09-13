@@ -13,7 +13,7 @@ export const Servico0 = (props) => {
     //const que vai retornar um conjunto de dados e setData o useState que vai retornar uma lista/array vazio - A const vai receber um array de informações, onde o data é o valor e setData é o valor que eu vou atribuir. o useState vai dizer qual é o estado inicial desse array um vai ta vazio o outro vai iniciar com o id, ou seja, o dado inicial é o id passado pelo parâmetro.
     const [data, setData] = useState([]);
     //trabalhar tb com a const do id e setID com um useState que vai informar o parâmetro do console.log ou seja vou receber um conjunto de dados e vou precisar do dados que foi passado como parâmetro na minha rota. 
-    const [id, setID] = useState(props.match.params.id);
+    const [id] = useState(props.match.params.id);
     const [status, setStatus] = useState({
         type: '',
         message: ''
@@ -22,7 +22,7 @@ export const Servico0 = (props) => {
     //useEffect é uma função que nao recebe parâmetros e tem uma função get p/ obter o Servico (const getServico) é uma func async e vai receber o axios get por conta do get que foi usado no postman, portanto o api concatena com a pagina url do postman que foi feita no controller.js e concatena tb o id que vai ser escolhido pelo navegador isso forma a rota da execução. Se isso for possivel vai ter uma resposta (response)
     useEffect(() => {
         const getServico = async () => {
-            await axios.get(api + "/servico/" + id)
+            await axios.get(api+"/servico/"+id)
                 .then((response) => {
                     //console.log(response.data.servico)
                     //setData que vai pegar os dados do servico no controller e mostrar na pagina
@@ -36,7 +36,7 @@ export const Servico0 = (props) => {
                     })
                 })
         }
-        //a func getServio vai retornar um conj de dados com base no id que precisa ser inserido dentro do array [] entre a virgula e o parenteses para instanciar a função
+        //a func getServico vai retornar um conj de dados com base no id que precisa ser inserido dentro do array [] entre a virgula e o parenteses para instanciar a função
         getServico();
     }, [id]);
 
@@ -48,14 +48,16 @@ export const Servico0 = (props) => {
                         <h1>Informações do Serviço</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/visualizarservico" className="btn btn-outline-success btn-sm">Voltar para a lista de Serviços</Link>
+                        <Link to="/visualizarservico" className="btn btn-outline-success btn-sm m-2">Voltar para a lista de Serviços</Link>
+                        <Link to={"/editarservico/"+data.id}
+                            className="btn btn-outline-warning btn-sm">Editar</Link>
                     </div>
                 </div>
 
                 {/* tratamento do erro */}
                 <hr className="m1" />{status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
-                
-                {/* dl vai fluncionar como uma tabela o className row vai exibir as informacoes em linha, cada linha vai ter um conjunto de informacões dt */}
+
+                {/* dl vai funcionar como uma tabela o className row vai exibir as informações em linha, cada linha vai ter um conjunto de informações dt */}
                 <dl className="row">
                     {/* dt vai pegar as informacoes do servico col-sm-3 definicao de tamanho. como o ID ta sendo recebido nao vai ser preciso exibir */}
                     <dt className="col-sm-3">Nome</dt>

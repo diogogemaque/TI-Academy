@@ -6,7 +6,7 @@ import { api } from "../../../config";
 
 export const Pedido0 = (props) => {
     const [data, setData] = useState([]);
-    const [id, setID] = useState(props.match.params.id);
+    const [id] = useState(props.match.params.id);
     const [status, setStatus] = useState([]);
 
     useEffect(() => {
@@ -43,19 +43,27 @@ export const Pedido0 = (props) => {
                 <dl className="row">
                     <dt className="col-sm-3">Cliente ID</dt>
                     <dd className="col-sm-9">{data.ClienteId}</dd>
-                </dl>
-                {/* <dl className="row">
-                    <dt className="col-sm-3">Data de Nascimento</dt>
-                    <dd className="col-sm-9">{data.nascimento}</dd>
+                </dl>                
+                <dl className="row">
+                    <dt className="col-sm-3">Nome do Cliente</dt>
+                    <dd className="col-sm-9">{data.nome}</dd>
                 </dl>
                 <dl className="row">
-                    <dt className="col-sm-3">Endereço</dt>
-                    <dd className="col-sm-9">{data.endereco}</dd>
+                    <dt className="col-sm-3">Serviço ID</dt>
+                    <dd className="col-sm-9">{data.ServicoId}</dd>
                 </dl>
                 <dl className="row">
-                    <dt className="col-sm-3">Cidade</dt>
-                    <dd className="col-sm-9">{data.cidade}</dd>
-                </dl> */}
+                    <dt className="col-sm-3">Nome do serviço</dt>
+                    <dd className="col-sm-9">{data.nome}</dd>
+                </dl>
+                <dl className="row">
+                    <dt className="col-sm-3">Valor</dt>
+                    <dd className="col-sm-9">{data.valor}</dd>                    
+                </dl>
+                <dl className="row">
+                    <dt className="col-sm-3">data</dt>
+                    <dd className="col-sm-9">{data.data}</dd>
+                </dl>
             </Container>
         </div>
     )

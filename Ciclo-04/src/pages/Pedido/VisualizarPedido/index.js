@@ -36,9 +36,11 @@ export const VisualizarPedido = () => {
                 <Table hover>
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Cliente ID</th>
-                            <th>Serviço ID</th>
+                            <th>ID do Pedido</th>
+                            <th>ID do Cliente</th>
+                            <th>Nome do Cliente</th>
+                            <th>ID do Serviço</th>
+                            <th>Serviço</th>
                             <th>Valor</th>
                             <th>Data</th>
                             <th>Ação</th>
@@ -49,11 +51,13 @@ export const VisualizarPedido = () => {
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.ClienteId}</td>
+                                <td>{item.nome}</td>
                                 <td>{item.ServicoId}</td>
+                                <td>{item.nome}</td>
                                 <td>{item.valor}</td>
                                 <td>{item.data}</td>
                                 <td className="text-center">
-                                    <Link to={"/cliente0/" + item.id}
+                                    <Link to={"/pedido0/" + item.id}
                                         className="btn btn-outline-primary btn-sm">Consultar</Link>
                                 </td>
                             </tr>

@@ -6,7 +6,7 @@ import { api } from "../../../config";
 
 export const Cliente0 = (props) => {
     const [data, setData] = useState([]);
-    const [id, setID] = useState(props.match.params.id);
+    const [id] = useState(props.match.params.id);
     const [status, setStatus] = useState({
         type:'',
         message:''

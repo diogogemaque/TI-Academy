@@ -9,6 +9,8 @@ import { Menu } from './components/Menu';
 import {Servico0} from './pages/Servico/Servico0';
 import {Cliente0} from './pages/Cliente/Cliente0';
 import { Pedido0 } from './pages/Pedido/Pedido0';
+import { CadastrarServico } from './pages/Servico/CadastrarServico';
+import { EditarServico } from './pages/Servico/EditarServico';
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
       <Menu/>
       <Router>
         <Switch>
+          {/* adicionar o link /.... e vincular com o export const do index.js da pasta Cadastrar  */}
           <Route exact path="/" component={Home}/> {/*PATH=CAMINHO / COMPONENT= */}
           <Route path= "/visualizarservico" component={VisualizarServico}/>
           <Route path= "/visualizarcliente" component={VisualizarCliente}/>
@@ -24,6 +27,8 @@ function App() {
           <Route path= "/servico0/:id" component={Servico0}/>
           <Route path= "/cliente0/:id" component={Cliente0}/>
           <Route path= "/pedido0/:id" component={Pedido0}/>
+          <Route path= "/cadastrarservico" component={CadastrarServico}/>
+          <Route path= "/editarservico/:id" component={EditarServico}/>
         </Switch>
       </Router>
     </div>

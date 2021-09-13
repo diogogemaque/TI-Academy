@@ -40,6 +40,26 @@ export const VisualizarServico = () => {
                 })
             });
     }
+
+    const apagarServico = async (idServico) => {
+        console.log(idServico);
+
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+
+        await axios.delete(api + "/apagarservico/" + idServico, { headers })
+            .then((response) => {
+                console.lop(response.data.error);
+            })
+            .catch(() => {
+                setStatus({
+                    type: 'error',
+                    message: 'Erro: Não foi possível conectar a API'
+                });
+            });
+    }
+
     //todo objeto precisa ser instanciado > instanciar a função através do useEffect (verificar se ele foi importado) dentro dele é criada uma funcao e dentro da funcao é chamado o getServicos é importante colocar um colchete que é onde o retornado os dados da funcao dentro de um array que nao fique em looping e executar uma vez só
     useEffect(() => {
         getServicos();
@@ -50,6 +70,16 @@ export const VisualizarServico = () => {
             <Container>
                 {/* no reactstrap em componentes selecionar o aleta que deseja copiar e colar e dentro da mensagem colocar a message do status do erro. Importante: importar o Alert do reactstrap. Para que o alerta aparece somente quando der o erro é necessário usar a ação de que se o status.type for igual ao error se(?) o resultado for igual ao error exibir o alerta, caso contrário(:) não exibir nada, ou seja:*/}
                 {status.type === 'error' ? <Alert color="warning">{status.message}</Alert> : ""}
+
+                <div className="p-2 d-flex">
+                    <div className="m-auto  p-2">
+                        <h1>Informações do Serviço</h1>
+                    </div>
+                    <div className="p-2">
+                        <Link to="/cadastrarservico" className="btn btn-outline-success btn-sm">Cadastrar</Link>
+                    </div>
+                </div>
+
 
                 <Table hover>
                     <thead>
@@ -71,7 +101,10 @@ export const VisualizarServico = () => {
                                 <td className="text-center">
                                     {/* link no padrão do react-router-dom e importar*/}
                                     <Link to={"/servico0/" + item.id}
-                                        className="btn btn-outline-primary btn-sm">Consultar</Link>
+                                        className="btn btn-outline-primary btn-sm m-2">Consultar</Link>
+                                    <Link to={"/editarservico/" + item.id}
+                                        className="btn btn-outline-warning btn-sm">Editar</Link>
+                                    <span className="btn btn-outline-danger btn-sm m-1" onClick={() => apagarServico(item.id)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}
